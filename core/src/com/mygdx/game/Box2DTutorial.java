@@ -11,8 +11,7 @@ import com.mygdx.game.views.*;
 // ApplicationAdapter if you want to use your own screen management
 // aka the Orchestrator
 public class Box2DTutorial extends Game {
-	SpriteBatch batch;
-	Texture img;
+    private AppPreferences preferences;
 	private LoadingScreen loadingScreen;
 	private PreferencesScreen preferencesScreen;
 	private MenuScreen menuScreen;
@@ -26,25 +25,19 @@ public class Box2DTutorial extends Game {
 
 	@Override
 	public void create () {
-	    //batch = new SpriteBatch();
         loadingScreen = new LoadingScreen(this);
-		//img = new Texture("badlogic.jpg");
         setScreen(loadingScreen);
+        preferences = new AppPreferences();
 	}
 
-	@Override
+	@Override //- not sure if it should be there or not
 	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+        super.render(); // from stack overflow answer
 	}
 	
 	@Override
 	public void dispose () {
-		batch.dispose();
-		img.dispose();
+
 	}
 
 	public void changeScreen(int screen){
@@ -70,5 +63,9 @@ public class Box2DTutorial extends Game {
                 this.setScreen(endScreen);
                 break;
         }
+    }
+
+    public AppPreferences getPreferences() {
+        return this.preferences;
     }
 }
