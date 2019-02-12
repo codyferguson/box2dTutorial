@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.mygdx.game.loader.B2dAssetManager;
 import com.mygdx.game.views.*;
 
 // ApplicationAdapter if you want to use your own screen management
@@ -17,6 +18,7 @@ public class Box2DTutorial extends Game {
 	private MenuScreen menuScreen;
 	private MainScreen mainScreen;
 	private EndScreen endScreen;
+	public B2dAssetManager assetManager = new B2dAssetManager();
 
 	public final static int MENU = 0;
     public final static int PREFERENCES = 1;
